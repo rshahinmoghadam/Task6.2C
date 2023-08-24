@@ -1,0 +1,44 @@
+pipeline{
+    agent any
+    environment{
+        DIRECTORY_PATH = "Directory path file being fetched from"
+        TESTING_ENVIRONMENT = "Testing Environment Name"
+        PRODUCTION_ENVIRONMENT = "Ramin"
+    }
+    stages{
+        stage("Build"){
+            steps{
+                echo "Fetch the Source Code from $DIRECTORY_PATH"
+                echo "compile the code and generate any necessary artifacts"
+            }
+        }
+        stage("Test"){
+            steps{
+                echo "Unit Test"
+                echo "Integration Tests"
+
+            }
+        }
+        stage("Code Quality Check"){
+            steps{
+                echo "Check The Quality of the code"
+            }
+        }
+        stage("Deploy"){
+            steps{
+                echo "deploy the application to $TESTING_ENVIRONMENT"
+            }
+        }
+        stage("Approval"){
+            steps{
+                sleep 10
+            }
+        }
+        stage("Deploy to production"){
+            steps{
+                echo "Deploy the code to Production Environment $PRODUCTION_ENVIRONMENT"
+            }
+
+        }
+    }
+}
