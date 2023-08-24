@@ -15,6 +15,18 @@ pipeline{
             steps{
                 echo "Run unit test to make sure code runs as expected and run integration test to ensure different components of the application work properly together"
                 echo"Use Selenium for unit and integration testing"
+            post{
+                success{
+                    mail to: "rshahinmoghadam@deakin.edu.au",
+                    subject: "Test Status"
+                    body: "Test was successful"
+                }
+                failure{
+                    mail to: "rshahinmoghadam@deakin.edu.au",
+                    subject: "Test Status"
+                    body: "Test was failed"
+                }
+            }
 
             }
         }
@@ -26,6 +38,18 @@ pipeline{
         stage("Security Scan"){
             steps{
                 echo " perform a security scan on the code using Snyke Security to identify any vulnerabilities"
+            post{
+                success{
+                    mail to: "rshahinmoghadam@deakin.edu.au",
+                    subject: "Security Scan Status"
+                    body: "Security Scan was successful"
+                }
+                failure{
+                    mail to: "rshahinmoghadam@deakin.edu.au",
+                    subject: "Security Scan Status"
+                    body: "Security Scan was failed"
+                }
+            }
             }
         }
         stage("Deploy to staging"){
