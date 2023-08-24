@@ -21,7 +21,7 @@ pipeline{
                 success{
                     mail to: "rshahinmoghadam@deakin.edu.au",
                     subject: "Test Status",
-                    body: "Test was successful"
+                    body: "Test was successful ${BUILD_LOG, maxLines, escapeHtml}"
                 }
                 failure{
                     mail to: "rshahinmoghadam@deakin.edu.au",
