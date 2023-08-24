@@ -21,14 +21,14 @@ pipeline{
                 success{
                     emailext attachLog: true,
                     body: "Test was successful",
-                    recipientProviders: [developers(), requestor()],
                     subject: "Test Status",
                     to: "rshahinmoghadam@deakin.edu.au"
                 }
                 failure{
-                    mail to: "rshahinmoghadam@deakin.edu.au",
+                    emailext attachLog: true,
+                    body: "Test Failed",
                     subject: "Test Status",
-                    body: "Test was failed"
+                    to: "rshahinmoghadam@deakin.edu.au"
                 }
             }
 
@@ -45,14 +45,16 @@ pipeline{
             }
             post{
                 success{
-                    mail to: "rshahinmoghadam@deakin.edu.au",
+                    emailext attachLog: true,
+                    body: "Security Scan was Successful",
                     subject: "Security Scan Status",
-                    body: "Security Scan was successful"
+                    to: "rshahinmoghadam@deakin.edu.au"
                 }
                 failure{
-                    mail to: "rshahinmoghadam@deakin.edu.au",
+                    emailext attachLog: true,
+                    body: "Security Scan Failed",
                     subject: "Security Scan Status",
-                    body: "Security Scan was failed"
+                    to: "rshahinmoghadam@deakin.edu.au"
                 }
             }
             
