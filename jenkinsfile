@@ -8,40 +8,39 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "Fetch the Source Code from $DIRECTORY_PATH"
-                echo "compile the code and generate any necessary artifacts"
+                echo "Build the code using Apache Ant to compile and package the code"
             }
         }
-        stage("Test"){
+        stage("Unit Test and Integration Test"){
             steps{
-                echo "Unit Test"
-                echo "Integration Tests"
+                echo "Run unit test to make sure code runs as expected and run integration test to ensure different components of the application work properly together"
+                echo"Use Selenium for unit and integration testing"
 
             }
         }
-        stage("Code Quality Check"){
+        stage("Code Analysis"){
             steps{
-                echo "Check The Quality of the code"
+                echo " Use FindBugs to analyse the code and ensure it meets industry standards"
             }
         }
-        stage("Deploy"){
+        stage("Security Scan"){
             steps{
-                echo "deploy the application to $TESTING_ENVIRONMENT"
+                echo " perform a security scan on the code using Snyke Security to identify any vulnerabilities"
             }
         }
-        stage("Approval"){
+        stage("Deploy to staging"){
             steps{
-                sleep 10
+                echo "deploy the application to a staging server using Deploy to Container Plugin"
+            }
+        }
+        stage("Integration Tests on Staging"){
+            steps{
+                echo " run integration tests on the staging environment to ensure the application functions as expected in a production-like environment."
             }
         }
         stage("Deploy to production"){
             steps{
-                echo "Deploy the code to Production Environment $PRODUCTION_ENVIRONMENT"
-            }
-        }
-        stage("Complete"){
-            steps{
-                echo "Completed"
+                echo "deploy the application to a production server like Amazon"
             }
 
         }
