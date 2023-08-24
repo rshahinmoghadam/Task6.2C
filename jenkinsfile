@@ -19,12 +19,12 @@ pipeline{
             post{
                 success{
                     mail to: "rshahinmoghadam@deakin.edu.au",
-                    subject: "Test Status"
+                    subject: "Test Status",
                     body: "Test was successful"
                 }
                 failure{
                     mail to: "rshahinmoghadam@deakin.edu.au",
-                    subject: "Test Status"
+                    subject: "Test Status",
                     body: "Test was failed"
                 }
             }
@@ -43,12 +43,12 @@ pipeline{
             post{
                 success{
                     mail to: "rshahinmoghadam@deakin.edu.au",
-                    subject: "Security Scan Status"
+                    subject: "Security Scan Status",
                     body: "Security Scan was successful"
                 }
                 failure{
                     mail to: "rshahinmoghadam@deakin.edu.au",
-                    subject: "Security Scan Status"
+                    subject: "Security Scan Status",
                     body: "Security Scan was failed"
                 }
             }
