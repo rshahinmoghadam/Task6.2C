@@ -15,7 +15,7 @@ pipeline{
             steps{
                 echo "Run unit test to make sure code runs as expected and run integration test to ensure different components of the application work properly together"
                 echo"Use Selenium for unit and integration testing"
-                sh action
+                
                 
             }
             post{
